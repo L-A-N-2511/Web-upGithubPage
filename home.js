@@ -5,8 +5,8 @@
 
 const API_URL = (typeof CONFIG !== 'undefined') ? `${CONFIG.API_BASE_URL}/posts` : "http://localhost:3000/api/posts";
 
-document.addEventListener('DOMContentLoaded', function() {
-    
+document.addEventListener('DOMContentLoaded', function () {
+
     checkLoginStatus();
     loadSearchLocations();
     fetchPosts(); // Gọi hàm lấy tin mới
@@ -48,14 +48,14 @@ async function loadSearchLocations() {
         if (data.error === 0) {
             data.data.forEach(city => citySelect.appendChild(new Option(city.full_name, city.id)));
         }
-        citySelect.addEventListener('change', async function() {
+        citySelect.addEventListener('change', async function () {
             districtSelect.innerHTML = '<option value="">Tất cả Quận/Huyện</option>';
             if (!this.value) return;
             const res = await fetch(`https://esgoo.net/api-tinhthanh/2/${this.value}.htm`);
             const data = await res.json();
             if (data.error === 0) data.data.forEach(d => districtSelect.appendChild(new Option(d.full_name, d.id)));
         });
-        districtSelect.addEventListener('change', async function() {
+        districtSelect.addEventListener('change', async function () {
             wardSelect.innerHTML = '<option value="">Tất cả Phường/Xã</option>';
             if (!this.value) return;
             const res = await fetch(`https://esgoo.net/api-tinhthanh/3/${this.value}.htm`);
@@ -102,20 +102,24 @@ function renderPosts(posts) {
         const imgSrc = (post.image && post.image.length > 100) ? post.image : 'https://via.placeholder.com/300x200?text=No+Image';
 
         const html = `
-            <div class="room-item">
-                <div class="room-image">
-                    <img src="${imgSrc}" alt="Ảnh phòng trọ">
-                    <span class="price-tag">${price} đ/tháng</span>
-                </div>
-                <div class="room-info">
-                    <h3 class="room-title">${post.title}</h3>
-                    <div class="room-meta">
-                        <span>📐 ${post.area}m²</span>
-                        <span>📍 ${post.location_district || ''}, ${post.location_city || ''}</span>
-                    </div>
-                    <button class="btn-detail" onclick="alert('Xem chi tiết: ${post.title}')">Xem chi tiết</button>
-                </div>
+           <div class="room-item">
+        <div class="room-image">
+            <img src="${imgSrc}" alt="Ảnh phòng trọ">
+            <span class="price-tag">${price} đ/tháng</span>
+        </div>
+        <div class="room-info">
+            <h3 class="room-title">${post.title}</h3>
+            <div class="room-meta">
+                <span>📐 ${post.area}m²</span>
+                <span>📍 ${post.location_district}, ${post.location_city}</span>
             </div>
+            
+            <a href="chi-tiet/chi-tiet.html?id=${post._id}" class="btn-detail" style="display:block; text-align:center; text-decoration:none; line-height:35px;">
+                Xem chi tiết
+            </a>
+            
+        </div>
+    </div>
         `;
         roomGrid.insertAdjacentHTML('beforeend', html);
     });
@@ -124,7 +128,7 @@ function renderPosts(posts) {
 // 5. XỬ LÝ NÚT TÌM KIẾM
 const btnSearch = document.getElementById('btn-search-trigger');
 if (btnSearch) {
-    btnSearch.addEventListener('click', function() {
+    btnSearch.addEventListener('click', function () {
         const citySelect = document.getElementById('city');
         const districtSelect = document.getElementById('district');
         const wardSelect = document.getElementById('ward');

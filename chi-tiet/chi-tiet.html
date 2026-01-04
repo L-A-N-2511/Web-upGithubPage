@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết phòng trọ</title>
+    <link rel="icon" type="image/png" href="../image/logo01.png">
+    <link rel="stylesheet" href="chi-tiet.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <a href="../index.html"><img src="../image/logo01.png" alt="Logo"></a>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="../index.html" class="btn-rent" style="background: white; color: #28a745; border: 1px solid #28a745;">← Quay lại</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="detail-container">
+        <div class="detail-main">
+            <div class="detail-image">
+                <img id="d-image" src="" alt="Ảnh phòng trọ đang tải...">
+            </div>
+            
+            <h1 id="d-title" class="detail-title">Đang tải dữ liệu...</h1>
+            
+            <div class="detail-meta">
+                <span class="meta-price" id="d-price">...</span>
+                <span class="meta-area" id="d-area">...</span>
+            </div>
+
+            <div class="detail-address">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span id="d-address">...</span>
+            </div>
+
+            <hr>
+
+            <div class="detail-desc">
+                <h3>Thông tin mô tả</h3>
+                <p id="d-desc">...</p>
+            </div>
+        </div>
+
+        <div class="detail-sidebar">
+            <div class="contact-card">
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/60" alt="Avatar" class="avatar">
+                    <div>
+                        <h3 id="d-username">Người đăng</h3>
+                        <span class="status">● Đang hoạt động</span>
+                    </div>
+                </div>
+
+                <a href="#" id="btn-call" class="btn-contact call">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span id="d-phone">Bấm để hiện số</span>
+                </a>
+
+                <a href="#" id="btn-zalo" class="btn-contact zalo" target="_blank">
+                    Nhắn qua Zalo
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 Tìm Trọ Nhanh
+    </footer>
+
+    <script src="../config.js"></script>
+    <script src="chi-tiet.js"></script>
+</body>
+</html>
