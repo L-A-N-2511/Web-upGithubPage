@@ -1,0 +1,95 @@
+/* =======================================================
+   CSS DÀNH RIÊNG CHO TRANG ĐĂNG NHẬP / ĐĂNG KÝ
+   ======================================================= */
+
+/* 1. Reset Cơ bản & Nền */
+body { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+.auth-body {
+    background: linear-gradient(135deg, #e3f2fd 0%, #e8f5e9 100%);
+    min-height: 100vh;
+    display: flex; justify-content: center; align-items: center;
+}
+
+/* 2. Hộp chứa Form */
+.auth-box {
+    background: white; width: 100%; max-width: 420px;
+    padding: 40px 35px; border-radius: 20px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+    text-align: center;
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 3. Logo & Typography */
+.auth-logo img { height: 60px; margin-bottom: 15px; transition: transform 0.3s; }
+.auth-logo img:hover { transform: scale(1.05); }
+
+.auth-box h2 { color: #1f2937; font-size: 24px; font-weight: 700; margin-bottom: 5px; }
+.auth-subtitle { color: #6b7280; font-size: 14px; margin-bottom: 30px; }
+
+/* 4. Input Fields */
+.form-group { margin-bottom: 20px; text-align: left; }
+.form-group label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: #374151; }
+
+.input-wrapper { position: relative; display: flex; align-items: center; }
+.input-icon { position: absolute; left: 15px; color: #9ca3af; pointer-events: none; }
+
+.form-group input {
+    width: 100%; padding: 12px 15px 12px 45px;
+    border: 1px solid #e5e7eb; background-color: #f9fafb;
+    border-radius: 10px; font-size: 15px; outline: none; transition: 0.2s;
+}
+
+.form-group input:focus {
+    background-color: #fff; border-color: #28a745;
+    box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.1);
+}
+.form-group input:focus + .input-icon, .form-group input:focus ~ .input-icon { color: #28a745; }
+
+.password-hint { color: #666; font-size: 12px; margin-top: 5px; display: block; }
+
+/* 5. Button */
+.btn-auth {
+    width: 100%; padding: 14px;
+    background: linear-gradient(to right, #28a745, #218838);
+    color: white; border: none; border-radius: 10px;
+    font-size: 16px; font-weight: 700; cursor: pointer;
+    margin-top: 10px; transition: 0.2s;
+    box-shadow: 0 4px 6px rgba(40, 167, 69, 0.2);
+}
+.btn-auth:hover { transform: translateY(-2px); box-shadow: 0 8px 15px rgba(40, 167, 69, 0.3); }
+
+/* 6. Footer & Link */
+.auth-footer { margin-top: 25px; font-size: 14px; color: #6b7280; }
+.auth-footer a { color: #28a745; text-decoration: none; font-weight: 600; margin-left: 5px; }
+.auth-footer a:hover { text-decoration: underline; }
+.back-home { margin-top: 10px; }
+.back-home a { color: #6b7280; font-weight: normal; }
+
+/* 7. Toast Notification */
+#toast-box {
+    position: fixed; top: 30px; right: 30px;
+    display: flex; flex-direction: column; align-items: flex-end; z-index: 9999;
+}
+.toast {
+    width: 350px; height: 80px; background: #fff;
+    font-weight: 500; margin: 10px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex; align-items: center; border-radius: 8px;
+    animation: slideInLeft 0.5s forwards, fadeOut 0.5s forwards 3s;
+}
+.toast i { font-size: 25px; margin: 0 20px; }
+.toast-msg { flex-grow: 1; font-size: 14px; color: #333; }
+
+/* Màu sắc Toast */
+.toast.error { border-left: 6px solid #ff3e3e; } .toast.error i { color: #ff3e3e; }
+.toast.success { border-left: 6px solid #28a745; } .toast.success i { color: #28a745; }
+.toast.warning { border-left: 6px solid #ffc107; } .toast.warning i { color: #ffc107; }
+
+@keyframes slideInLeft { 100% { transform: translateX(0); } }
+@keyframes fadeOut { 100% { opacity: 0; visibility: hidden; } }

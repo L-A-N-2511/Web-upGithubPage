@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm trọ nhanh - Trang chủ</title>
+    <link rel="icon" type="image/png" href="image/logo01.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="image/logo01.png" alt="Logo"></a>
+        </div>
+        <nav class="navigation">
+            <ul id="nav-menu">
+                <li><a href="dangnhap-dangky/login.html" class="btn-login">Đăng nhập</a></li>
+                <li><a href="dangnhap-dangky/register.html" class="btn-register">Đăng ký</a></li>
+                <li><a href="dang-tin/dang-tin.html" class="btn-rent">Cho thuê</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="search-banner">
+        <div class="search-box">
+            <h3>Tìm phòng trọ ưng ý</h3>
+            <div class="filter-group">
+                <div class="select-wrap">
+                    <select id="city">
+                        <option value="">Tất cả Tỉnh/Thành</option>
+                    </select>
+                </div>
+                <div class="select-wrap">
+                    <select id="district">
+                        <option value="">Tất cả Quận/Huyện</option>
+                    </select>
+                </div>
+                <div class="select-wrap">
+                    <select id="ward">
+                        <option value="">Tất cả Phường/Xã</option>
+                    </select>
+                </div>
+                <button class="btn-search" id="btn-search-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <span>Tìm ngay</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title">Phòng trọ mới nhất</h2>
+        <div class="room-grid" id="room-list"></div>
+    </main>
+
+    <footer>
+        &copy; 2026 Tìm Trọ Nhanh - Nền tảng kết nối thuê trọ số 1
+    </footer>
+    <script src="config.js"></script>
+    <script src="home.js"></script>
+</body>
+
+</html>

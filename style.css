@@ -1,0 +1,204 @@
+/* ================= 1. RESET & GLOBAL ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= 2. HEADER & NAVIGATION ================= */
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fcfeff;
+    padding: 15px 5%; /* Dùng % để cân đối */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.navigation a {
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* Màu sắc nút bấm */
+.btn-login { color: #555; }
+.btn-login:hover { background-color: rgba(0, 0, 0, 0.05); color: #000; }
+
+.btn-register { background-color: #f3f4f6; color: #333; }
+.btn-register:hover { background-color: #e5e7eb; transform: translateY(-2px); }
+
+.btn-rent { 
+    background-color: #28a745; 
+    color: white; 
+    box-shadow: 0 4px 14px rgba(40, 167, 69, 0.39); 
+}
+.btn-rent:hover { 
+    background-color: #218838; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.23); 
+}
+
+/* Giao diện người dùng đã đăng nhập */
+.user-info { display: flex; align-items: center; }
+.welcome-text { font-size: 15px; color: #333; margin-right: 10px; }
+.welcome-text b { color: #28a745; }
+
+.btn-logout {
+    color: #666; font-size: 14px; padding: 8px 15px;
+    border: 1px solid #ddd; border-radius: 8px;
+}
+.btn-logout:hover {
+    background-color: #fff1f0; color: #d9534f; border-color: #d9534f;
+}
+
+/* ================= 3. SEARCH BANNER ================= */
+.search-banner {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    padding: 40px 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-box {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 1000px;
+}
+
+.search-box h3 { margin-bottom: 20px; color: #333; font-size: 20px; }
+
+.filter-group { display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
+.select-wrap { flex: 1; min-width: 200px; }
+
+select {
+    width: 100%; padding: 12px 15px;
+    border: 1px solid #ddd; border-radius: 8px;
+    font-size: 15px; outline: none; cursor: pointer;
+    background: #fff; font-family: 'Segoe UI', sans-serif;
+}
+select:focus { border-color: #28a745; box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1); }
+
+.btn-search {
+    padding: 12px 30px;
+    background-color: #28a745; color: white;
+    border: none; border-radius: 8px;
+    font-weight: bold; font-size: 16px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: 0.3s;
+}
+.btn-search:hover { background-color: #218838; transform: translateY(-2px); }
+
+/* ================= 4. MAIN CONTENT & GRID ================= */
+.container {
+    padding: 30px 5%; /* Căn lề theo % */
+    flex: 1; /* Để footer luôn bị đẩy xuống dưới cùng */
+}
+
+.section-title { margin-bottom: 25px; font-size: 24px; color: #333; font-weight: 700; }
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Cột */
+    gap: 25px;
+}
+
+/* Thẻ phòng trọ */
+.room-item {
+    background: white; border-radius: 12px;
+    overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    display: flex; flex-direction: column;
+}
+.room-item:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.12); }
+
+.room-image { position: relative; height: 180px; width: 100%; }
+.room-image img { width: 100%; height: 100%; object-fit: cover; }
+.price-tag {
+    position: absolute; bottom: 10px; left: 10px;
+    background: rgba(0,0,0,0.7); color: #fff;
+    padding: 4px 10px; border-radius: 6px; font-weight: bold; font-size: 14px;
+}
+
+.room-info { padding: 15px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; }
+.room-title {
+    font-size: 16px; margin-bottom: 10px; line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.room-meta { font-size: 14px; color: #666; margin-bottom: 15px; display: flex; gap: 15px; }
+
+.btn-detail {
+    width: 100%; padding: 10px;
+    border: 1px solid #28a745; background: white; color: #28a745;
+    border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s;
+}
+.btn-detail:hover { background: #28a745; color: white; }
+
+/* ================= 5. FOOTER ================= */
+footer {
+    text-align: center; padding: 20px;
+    background: #fff; color: #666; font-size: 14px;
+    border-top: 1px solid #eee; margin-top: auto;
+}
+
+/* ================= 6. RESPONSIVE (GỘP CHUNG) ================= */
+
+/* Tablet & Laptop nhỏ (< 1024px) */
+@media screen and (max-width: 1024px) {
+    .header, .container { padding-left: 30px; padding-right: 30px; }
+    .room-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile (< 768px) */
+@media screen and (max-width: 768px) {
+    .header, .container { padding-left: 15px; padding-right: 15px; }
+    .logo img { height: 40px; }
+    .navigation ul { gap: 8px; }
+    .navigation a { padding: 8px 12px; font-size: 14px; }
+    
+    .filter-group { flex-direction: column; }
+    .select-wrap, .btn-search { width: 100%; }
+    
+    .room-grid { grid-template-columns: 1fr; }
+    .room-image { height: 200px; }
+}
+
+/* Small Mobile (< 480px) */
+@media screen and (max-width: 480px) {
+    .header { flex-direction: column; gap: 10px; padding: 10px 5px; }
+    .navigation ul { width: 100%; justify-content: center; gap: 5px; }
+    .navigation a { padding: 6px 10px; font-size: 13px; flex: 1; text-align: center; }
+}
