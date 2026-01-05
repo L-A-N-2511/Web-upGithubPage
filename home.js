@@ -22,6 +22,7 @@ function checkLoginStatus() {
     if (token && username) {
         navMenu.innerHTML = `
             <li class="user-info"><span class="welcome-text">Xin chào, <b>${username}</b></span></li>
+            <li><a href="quan-ly.html" class="btn-rent" style="background:#17a2b8; border:none; margin-right:5px">Quản lý tin</a></li>
             <li><a href="#" id="btn-logout" class="btn-logout">Đăng xuất</a></li>
             <li><a href="dang-tin/dang-tin.html" class="btn-rent">Cho thuê</a></li>
         `;

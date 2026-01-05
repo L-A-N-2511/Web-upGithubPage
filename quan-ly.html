@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý tin đăng</title>
+    <link rel="icon" type="image/png" href="image/logo01.png">
+    <link rel="stylesheet" href="style.css"> <style>
+        /* CSS riêng cho nút xóa */
+        .btn-delete {
+            background-color: #ff4d4f;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            font-weight: bold;
+        }
+        .btn-delete:hover { background-color: #d9363e; }
+        .empty-notify { text-align: center; margin-top: 50px; color: #666; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><a href="index.html"><img src="image/logo01.png" alt="Logo"></a></div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html" class="btn-rent" style="background:white; color:#28a745; border:1px solid #28a745">← Về trang chủ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Tin đã đăng của tôi</h2>
+        <div class="room-grid" id="my-room-list">
+            </div>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="quan-ly.js"></script>
+</body>
+</html>
