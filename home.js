@@ -67,13 +67,16 @@ async function loadSearchLocations() {
 }
 
 // 3. LẤY TIN TỪ SERVER (HÀM MỚI)
-async function fetchPosts(filterQuery = "") {
+async function fetchPosts(filterQuery = "") 
+//filterQuery = "" chnhs bằng query trong lời gọi fetchPosts(query)
+//lúc đầu chưa có gì gán bằng rỗng cho đến khi gọi hàm fetchpót filterQuery mới thay đổi
+{
     const roomGrid = document.getElementById('room-list');
     roomGrid.innerHTML = '<p style="text-align:center; width:100%">Đang tải dữ liệu...</p>';
 
     try {
         // Gọi API: URL + Query (ví dụ ?city=Hà Nội)
-        const res = await fetch(`${API_URL}${filterQuery}`);
+        const res = await fetch(`${API_URL}${filterQuery}`);//"commet ở phần backend /src/controllers/postController.js/[GET] /api/posts"
         const data = await res.json();
 
         if (res.ok) {
@@ -147,5 +150,7 @@ if (btnSearch) {
 
         console.log("Đang tìm với query:", query);
         fetchPosts(query); // Gọi lại API với bộ lọc
+        // Về vân đề chèn đoạn mã script vi du là ai đó chèn mã muốn xóa database thì câu trả lời là không 
+        // "comment ở hàm fetchPosts phía trên phần 3. LẤY TIN TỪ SERVER (HÀM MỚI)"
     });
 }
